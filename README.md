@@ -17,6 +17,8 @@ python3 bot.py
 ```
 
 ## To Run on an Open Ocean Ubuntu 24.04 (LTS) x64 OS from scratch
+
+The last command in here will start the bot in the background, you can see it by running `ps` and looking for the line that says `python`.
 ```
 apt install python3-pip
 apt install python3.12-venv
