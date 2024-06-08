@@ -24,5 +24,5 @@ mkdir ~/.virtualenvs
 python3 -m venv ~/.virtualenvs/botenv
 source ~/.virtualenvs/botenv/bin/activate
 pip install -r requirements.txt
-python3 bot.py
+nohup python3 bot.py &
 ```
