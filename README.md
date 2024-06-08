@@ -1,5 +1,8 @@
 # Pycord Bot
 
+## Requirements
+Rename `.example.env` to `.env` and paste your Discord Bot Token after `TOKEN=` in it. 
+
 ## To Run Locally
 Before running the bot you will need to install all the requirements with this command:
 
