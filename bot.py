@@ -9,6 +9,14 @@ bot = discord.Bot()
 async def on_ready():
     print(f"We have logged in as {bot.user}")
 
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    if message.content.startswith('members'):
+        await message.channel.send('here are all of the members!')
+
 @bot.slash_command(guild_ids=[891051215843098635])
 async def hello(ctx):
     await ctx.respond("Hello!")
