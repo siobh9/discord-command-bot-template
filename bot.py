@@ -1,11 +1,7 @@
 import discord, os, aiohttp, random
-from discord.ext import commands
 from dotenv import load_dotenv
 
-intents = discord.Intents.default()
-intents.message_content = True
-
-bot = commands.Bot(command_prefix="!", intents=intents)
+bot = discord.Bot()
 
 # EVENTS
 
@@ -13,26 +9,17 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 async def on_ready():
     print(f"We have logged in as {bot.user}")
 
-# REGULAR COMMANDS (are prefixed by command_prefix)
-
-@bot.command()
+@bot.slash_command(guild_ids=[891051215843098635])
 async def ping(ctx):
-    await ctx.send("Pong!")
+    await ctx.respond("Pong!")
 
-@bot.command()
+@bot.slash_command(guild_ids=[891051215843098635])
 async def gtn(ctx, guess:int):
     number = random.randint(1, 3)
     if guess == number:
         await ctx.send("You guessed it!")
     else:
         await ctx.send("Nope! Better luck next time :)")
-
-@bot.event
-async def on_command_error(ctx, error):
-    if isinstance(error, commands.CommandNotFound):
-        await ctx.send("Unknown command.")
-
-# SLASH COMMANDS
 
 @bot.slash_command(guild_ids=[891051215843098635])
 async def hello(ctx):
@@ -55,8 +42,6 @@ async def randomfact(ctx):
                     color=0xE02B2B,
                 )
             await ctx.respond(embed=embed)
-
-# LOADING
 
 load_dotenv() # so we can easily access the TOKEN env var
 bot.run(os.getenv("TOKEN"))
