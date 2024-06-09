@@ -1,4 +1,4 @@
-# Pycord Bot
+# Discord Command Bot Template
 
 To connect this bot to your Discord server with the necessary permissions, you'll have to have 
 1. Created an application on Discord
