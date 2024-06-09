@@ -35,3 +35,10 @@ source ~/.virtualenvs/botenv/bin/activate
 pip install -r requirements.txt
 nohup python3 bot.py &
 ```
+
+## Notes
+
+### On slash vs prefixed commands, and unprefixed commands/moderating use cases
+[This commit](https://github.com/seanmc9/pycord-test/commit/c80bf79b0ec75c7480e1fa44fe9584bae10abb0e) contains the logic (and importantly the classes imported from the correct level of abstraction) necessary to support *both* slash and prefixed commands. What I have learned, however, is that you only really need one or the other; where things really break down is if you want unprefixed commands (the use case really being that the user doesn't know they're saying a command/moderating bots), then with how the abstraction is set up it actually makes sense to have 2 different bots at that point - because that sort of thing is easy to do with the Client library, but you lose access to all of the packaging in the higher abstraction Command classes (that support slash and prefixed commands) and they don't support client-level stuff (because that's what they abstract away - namely `on_message()`).
+
+tldr: make separate bots for commands bots and moderating bots because the levels of abstraction in the code is setup to work that way/you might as well not use them if you try to do everything in one bot.
