@@ -1,4 +1,4 @@
-import discord, os, aiohttp
+import discord, os, aiohttp, random
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -18,6 +18,14 @@ async def on_ready():
 @bot.command()
 async def ping(ctx):
     await ctx.send("Pong!")
+
+@bot.command()
+async def gtn(ctx, guess:int):
+    number = random.randint(1, 3)
+    if guess == number:
+        await ctx.send("You guessed it!")
+    else:
+        await ctx.send("Nope! Better luck next time :)")
 
 @bot.event
 async def on_command_error(ctx, error):
