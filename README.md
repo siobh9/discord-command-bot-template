@@ -1,6 +1,9 @@
 # Pycord Bot
 
-To connect this bot to your Discord server with the necessary permissions, you'll have to have created an application on Discord, categorized it as a bot, and have gone to this URL to authorize your bot on the server(s) you want it: https://discord.com/oauth2/authorize?client_id=<BOT_CLIENT_ID>&permissions=<PERMISSIONS>&integration_type=0&scope=bot+applications.commands
+To connect this bot to your Discord server with the necessary permissions, you'll have to have 
+1. Created an application on Discord
+2. Categorized it as a bot
+3. Gone to this URL to authorize your bot on the server(s) you want it: `https://discord.com/oauth2/authorize?client_id=<BOT_CLIENT_ID>&permissions=<PERMISSIONS>&integration_type=0&scope=bot+applications.commands` where
 - BOT_CLIENT_ID is also referred to as APPLICATION ID by Discord
 - PERMISSIONS is an integer that can be determined at the bottom of this page https://discord.com/developers/applications/YOUR_APPLICATION_ID_HERE/bot - you'll need to give permission to Read Channels, Send Messages, and Use Slash Commands (2147486720 at the time of writing but please always verify for your own bots)
 
