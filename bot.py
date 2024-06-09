@@ -21,9 +21,9 @@ async def ping(ctx):
 async def gtn(ctx, guess:int):
     number = random.randint(1, 3)
     if guess == number:
-        await ctx.send("You guessed it!")
+        await ctx.respond("You guessed it!")
     else:
-        await ctx.send("Nope! Better luck next time :)")
+        await ctx.respond("Nope! Better luck next time :)")
 
 @bot.slash_command(guild_ids=GUILD_IDS)
 async def hello(ctx):
