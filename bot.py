@@ -13,6 +13,16 @@ bot = discord.Bot()
 async def on_ready():
     print(f"We have logged in as {bot.user}")
 
+@bot.event
+async def on_error(event, *args, **kwargs):
+    with open('err.log', 'a') as f:
+        if event == 'on_message':
+            f.write(f'Unhandled message: {args[0]}\n')
+        else:
+            raise
+
+# SLASH COMMANDS    
+
 @bot.slash_command(guild_ids=GUILD_IDS)
 async def ping(ctx):
     await ctx.respond("Pong!")
